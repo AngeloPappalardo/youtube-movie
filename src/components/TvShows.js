@@ -4,6 +4,7 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import NoImg from "./nessuna-foto.jpg";
 import { Container } from "./Navbar";
 import "../styles/Videos.css";
+import TrailerTvShows from "../trailers/TrailerTvShows";
 
 function TvShows() {
   const { toggle, inputValue } = useContext(Container);
@@ -68,11 +69,12 @@ function TvShows() {
               </Fragment>
             );
           })}
+          {trailer ? console.log() : <TrailerTvShows TvShowsTitle={title} toggle={toggle} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
             className={toggle ? "DarkTheme" : "LightTemeClose"}
             fontSize={55}
-            color="#fff"
+            color={toggle ? "#fff" : "#ff206e"}
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />

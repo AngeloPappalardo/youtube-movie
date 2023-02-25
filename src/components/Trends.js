@@ -4,11 +4,11 @@ import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai";
 import { Container } from "./Navbar";
 import NoImg from "./nessuna-foto.jpg";
 import "../styles/NavbarStyle.css";
+import TrailerTrends from "../trailers/TrailerTrends";
 
 function Trends() {
   const { toggle, inputValue } = useContext(Container);
   const input = inputValue;
-  const Shown = input ? "search" : "trending";
   const Api = "https://api.themoviedb.org/3";
 
   const TrendsShown = `/trending/all/week`;
@@ -71,11 +71,12 @@ function Trends() {
               </Fragment>
             );
           })}
+          {trailer ? console.log() : <TrailerTrends trendTitle={trendTitle} toggle={toggle} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
             className={toggle ? "DarkTheme" : "LightTemeClose"}
             fontSize={55}
-            color="#fff"
+            color={toggle ? "#fff" : "#ff206e"}
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />

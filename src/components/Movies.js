@@ -4,6 +4,7 @@ import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai";
 import { Container } from "./Navbar";
 import "../styles/Videos.css";
 import NoImg from "./nessuna-foto.jpg";
+import TrailerMovies from "../trailers/TrailerMovies";
 
 function Movies() {
   const { toggle, inputValue } = useContext(Container);
@@ -32,7 +33,7 @@ function Movies() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
-  const MuviesTitle = (movie) => {
+  const MoviesTitle = (movie) => {
     setMoviTitle(movie.title);
     setTrailer(!trailer);
   };
@@ -48,7 +49,7 @@ function Movies() {
                     color="#fff"
                     fontSize={40}
                     id={trailer ? "playIcon" : "hide"}
-                    onClick={() => MuviesTitle(movie)}
+                    onClick={() => MoviesTitle(movie)}
                   />
                   <img
                     src={
@@ -57,7 +58,7 @@ function Movies() {
                         : NoImg
                     }
                     alt="img"
-                    onClick={() => MuviesTitle(movie)}
+                    onClick={() => MoviesTitle(movie)}
                   />
                   <h3
                     id={movie.title.length > 28 ? "smaller-Text" : ""}
@@ -69,11 +70,12 @@ function Movies() {
               </Fragment>
             );
           })}
+          {trailer ? console.log() : <TrailerMovies moviesTitle={moviTitle} toggle={toggle} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
             className={toggle ? "DarkTheme" : "LightTemeClose"}
             fontSize={55}
-            color="#fff"
+            color={toggle ? "#fff" : "#ff206e"}
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />

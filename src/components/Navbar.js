@@ -4,7 +4,6 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import Movies from "./Movies";
 import TvShows from "./TvShows";
 import Trending from "./Trends";
-import Pricing from "./Pricing";
 import "../styles/NavbarStyle.css";
 
 export const Container = React.createContext();
@@ -44,18 +43,10 @@ function Navbar() {
             >
               <span id={toggle ? "Movies" : "MoviesLight"}>Trending</span>
             </NavLink>
-            <NavLink
-              to="/Pricing"
-              style={({ isActive }) => {
-                return { color: isActive ? "#fff" : "#EE9B00" };
-              }}
-            >
-              <span id={toggle ? "Movies" : "MoviesLight"}>Pricing</span>
-            </NavLink>
           </div>
           <div className="input-group">
             <input type="text" placeholder="Search Whatever You Want" onChange={(e) => setInputValue(e.target.value) } />
-            <HiSearch fontSize={21} color="green" id="search" />
+            <HiSearch fontSize={21} color={toggle ? "black" : "#ff206e"} id="search" />
             <div id="Color-switcher" onClick={() => setTogle(!toggle)}>
               <div
                 id={toggle ? "Color-switcher-mover" : "Color-switcher-moved"}
@@ -67,7 +58,6 @@ function Navbar() {
           <Route path="" element={<Movies />} />
           <Route path="TvShows" element={<TvShows />} />
           <Route path="Trending" element={<Trending />} />
-          <Route path="Pricing" element={<Pricing />} />
         </Routes>
       </Fragment>
     </Container.Provider>
