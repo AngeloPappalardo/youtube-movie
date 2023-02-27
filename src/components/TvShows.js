@@ -39,11 +39,11 @@ function TvShows() {
   return (
     <Fragment>
       <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
-        <div className="movies-container">
+        <section className="movies-container">
           {showData.map((shows) => {
             return (
               <Fragment key={shows.id}>
-                <div id={trailer ? "container" : "NoContainer"}>
+                <article id={trailer ? "container" : "NoContainer"}>
                   <AiFillPlayCircle
                     color="#fff"
                     fontSize={40}
@@ -65,7 +65,7 @@ function TvShows() {
                   >
                     {shows.name}
                   </h3>
-                </div>
+                </article>
               </Fragment>
             );
           })}
@@ -78,7 +78,7 @@ function TvShows() {
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />
-        </div>
+        </section>
       </div>
     </Fragment>
   );

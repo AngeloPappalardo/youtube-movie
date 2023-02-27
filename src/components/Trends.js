@@ -41,11 +41,11 @@ function Trends() {
   return (
     <Fragment>
       <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
-        <div className="movies-container">
+        <section className="movies-container">
           {trendArry.map((trend) => {
             return (
               <Fragment>
-                <div id={trailer ? "container" : "NoContainer"}>
+                <article id={trailer ? "container" : "NoContainer"}>
                   <AiFillPlayCircle
                     color="#fff"
                     fontSize={40}
@@ -67,7 +67,7 @@ function Trends() {
                   >
                     {trend.title}
                   </h3>
-                </div>
+                </article>
               </Fragment>
             );
           })}
@@ -80,7 +80,7 @@ function Trends() {
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />
-        </div>
+        </section>
       </div>
     </Fragment>
   );

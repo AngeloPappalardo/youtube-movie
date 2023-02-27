@@ -29,7 +29,7 @@ function Movies() {
   useEffect(() => {
     setTimeout(() => {
       MovieCall();
-    },100);
+    }, 100);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
@@ -40,11 +40,11 @@ function Movies() {
   return (
     <Fragment>
       <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
-        <div className="movies-container">
+        <section className="movies-container">
           {movieData.map((movie) => {
             return (
               <Fragment>
-                <div id={trailer ? "container" : "NoContainer"}>
+                <article id={trailer ? "container" : "NoContainer"}>
                   <AiFillPlayCircle
                     color="#fff"
                     fontSize={40}
@@ -66,20 +66,20 @@ function Movies() {
                   >
                     {movie.title}
                   </h3>
-                </div>
+                </article>
               </Fragment>
             );
           })}
           {trailer ? console.log() : <TrailerMovies moviesTitle={moviTitle} toggle={toggle} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
-            className={toggle ? "DarkTheme" : "LightTemeClose"}
+            className={toggle ? "DarkTheme player" : "LightTemeClose player"}
             fontSize={55}
             color={toggle ? "#fff" : "#ff206e"}
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />
-        </div>
+        </section>
       </div>
     </Fragment>
   );
