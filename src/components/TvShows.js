@@ -69,7 +69,11 @@ function TvShows() {
               </Fragment>
             );
           })}
-          {trailer ? console.log() : <TrailerTvShows TvShowsTitle={title} toggle={toggle} />}
+          {trailer ? (
+            console.log()
+          ) : (
+            <TrailerTvShows TvShowsTitle={title} toggle={toggle} />
+          )}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
             className={toggle ? "DarkTheme" : "LightTemeClose"}

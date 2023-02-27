@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NavbarSection from "./components/NavbarSection";
 
 export const Register = ({ onFormSwitch }) => {
   const [email, setEmail] = useState("");
@@ -10,10 +11,20 @@ export const Register = ({ onFormSwitch }) => {
     console.log(email);
   };
   return (
-    <>
+    <main>
+      <header className="container">
+        <NavbarSection />
+      </header>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Full name</label>
-        <input type="name" value={name} name="name" id="name" placeholder="Full name" />
+        <input
+          type="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          name="name"
+          id="name"
+          placeholder="Full name"
+        />
         <label htmlFor="email">email</label>
         <input
           value={email}
@@ -34,10 +45,9 @@ export const Register = ({ onFormSwitch }) => {
         />
         <button type="submit">Log In</button>
         <p onClick={() => onFormSwitch("login")}>
-        Alredy have an account? Login here.
-      </p>
+          Alredy have an account? Login here.
+        </p>
       </form>
-
-    </>
+    </main>
   );
 };

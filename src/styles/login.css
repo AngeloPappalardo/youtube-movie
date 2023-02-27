@@ -1,7 +1,7 @@
 /* Stili per la pagina di login */
 form {
   width: 400px;
-  margin: 0 auto;
+  margin: 40px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -16,7 +16,7 @@ form {
 input[type="email"],
 input[type="name"],
 input[type="password"] {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   margin-bottom: 20px;
   border: none;
@@ -41,5 +41,13 @@ button[type="submit"]:hover {
   color: red;
   font-style: italic;
 }
-
-/* Stili per la pagina di login */
+@media (max-width: 800px) {
+  form {
+    width: 300px;
+  }
+  input[type="email"],
+  input[type="name"],
+  input[type="password"] {
+    width: 95%;
+  }
+}

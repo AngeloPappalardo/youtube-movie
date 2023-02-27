@@ -113,8 +113,6 @@ span #HomeLight:hover,
 }
 
 @media (max-width: 800px) {
-  .nav-options a {
-  }
   .input-group input {
     width: 100px;
   }

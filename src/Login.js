@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useEffect, useRef, useState, useContext, Fragment } from "react";
 import Navbar from "./components/Navbar";
 import AuthContext from "./context/AuthProvider";
 import axios from "./api/axios";
 import "./styles/login.css";
+import NavbarSection from "./components/NavbarSection";
 const LOGIN_URL = "/auth";
 
 export const Login = ({ onFormSwitch }) => {
@@ -61,11 +62,14 @@ export const Login = ({ onFormSwitch }) => {
   return (
     <>
       {success ? (
-        <section>
+        <Fragment>
           <Navbar />
-        </section>
+        </Fragment>
       ) : (
         <section>
+          <header className="container">
+            <NavbarSection />
+          </header>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
