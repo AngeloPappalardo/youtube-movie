@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai";
 import { Container } from "./Navbar";
-import "../styles/Videos.css";
 import NoImg from "./nessuna-foto.jpg";
 import TrailerMovies from "../trailers/TrailerMovies";
 

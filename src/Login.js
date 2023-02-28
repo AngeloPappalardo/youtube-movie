@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, useContext, Fragment } from "react";
 import Navbar from "./components/Navbar";
 import AuthContext from "./context/AuthProvider";
 import axios from "./api/axios";
-import "./styles/login.css";
 import NavbarSection from "./components/NavbarSection";
 const LOGIN_URL = "/auth";
 
@@ -67,7 +66,7 @@ export const Login = ({ onFormSwitch }) => {
         </Fragment>
       ) : (
         <section>
-          <header className="container">
+          <header className="pb-5">
             <NavbarSection />
           </header>
           <p

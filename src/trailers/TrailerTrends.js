@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import movieTrailer from "movie-trailer";
-import "../styles/TrailerMovie.css";
+
 
 const TrailerTrends = ({ trendTitle, toggle }) => {
   const [video, setVideo] = useState("");
@@ -20,7 +20,7 @@ const TrailerTrends = ({ trendTitle, toggle }) => {
   }, [videoURL]);
   return (
     <Fragment>
-      <div className="container"></div>
+      <div className="container-trailer"></div>
       <div className="player">
         <div id={toggle ? "TrailerMovie-name-dark" : "TrailerMovie-name-light"}>
           {trendTitle}

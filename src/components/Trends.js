@@ -3,7 +3,6 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai";
 import { Container } from "./Navbar";
 import NoImg from "./nessuna-foto.jpg";
-import "../styles/NavbarStyle.css";
 import TrailerTrends from "../trailers/TrailerTrends";
 
 function Trends() {

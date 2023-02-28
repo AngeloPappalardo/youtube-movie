@@ -3,7 +3,6 @@ import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import NoImg from "./nessuna-foto.jpg";
 import { Container } from "./Navbar";
-import "../styles/Videos.css";
 import TrailerTvShows from "../trailers/TrailerTvShows";
 
 function TvShows() {

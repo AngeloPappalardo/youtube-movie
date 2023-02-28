@@ -12,7 +12,7 @@ export const Register = ({ onFormSwitch }) => {
   };
   return (
     <main>
-      <header className="container">
+      <header className="pb-5">
         <NavbarSection />
       </header>
       <form onSubmit={handleSubmit}>

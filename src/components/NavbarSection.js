@@ -1,9 +1,6 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/NavbarStyle.css";
 import { HiSearch } from "react-icons/hi";
-
-
 
 function NavbarSection({ toggle, setTogle, setInputValue }) {
   return (
