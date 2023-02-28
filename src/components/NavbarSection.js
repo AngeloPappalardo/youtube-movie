@@ -1,13 +1,26 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HiSearch } from "react-icons/hi";
 
-function NavbarSection({ toggle, setTogle, setInputValue }) {
+function NavbarSection({ setInputValue }) {
+  const [thame, setThame] = useState("dark-font");
+
+  const changeTheme = () => {
+    if (thame === "dark-font") {
+      setThame("light-font");
+    } else {
+      setThame("dark-font");
+    }
+  };
+  useEffect(() => {
+    document.documentElement.className = thame;
+  }, [thame]);
+
   return (
     <Fragment>
-      <nav className={toggle ? "" : "navBarColor"}>
+      <nav>
         <div className="nav-options">
-          <h1 id={toggle ? "" : "heading"}>FILMACT</h1>
+          <h1>FILMACT</h1>
           <div className="menu">
             <NavLink
               to=""
@@ -15,7 +28,7 @@ function NavbarSection({ toggle, setTogle, setInputValue }) {
                 return { color: isActive ? "#fff" : "#EE9B00" };
               }}
             >
-              <span id={toggle ? "Movies" : "MoviesLight"}>Movies</span>
+              <span>Movies</span>
             </NavLink>
             <NavLink
               to="/TvShows"
@@ -23,7 +36,7 @@ function NavbarSection({ toggle, setTogle, setInputValue }) {
                 return { color: isActive ? "#fff" : "#EE9B00" };
               }}
             >
-              <span id={toggle ? "Movies" : "MoviesLight"}>Tv Shows</span>
+              <span>Tv Shows</span>
             </NavLink>
             <NavLink
               to="/Trending"
@@ -31,7 +44,7 @@ function NavbarSection({ toggle, setTogle, setInputValue }) {
                 return { color: isActive ? "#fff" : "#EE9B00" };
               }}
             >
-              <span id={toggle ? "Movies" : "MoviesLight"}>Trending</span>
+              <span>Trending</span>
             </NavLink>
           </div>
         </div>
@@ -41,15 +54,9 @@ function NavbarSection({ toggle, setTogle, setInputValue }) {
             placeholder="Search"
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <HiSearch
-            fontSize={21}
-            color={toggle ? "black" : "#ff206e"}
-            id="search"
-          />
-          <div id="Color-switcher" onClick={() => setTogle(!toggle)}>
-            <div
-              id={toggle ? "Color-switcher-mover" : "Color-switcher-moved"}
-            ></div>
+          <HiSearch fontSize={21} color=" var( --clr-nav)" id="search" />
+          <div id="Color-switcher" onClick={changeTheme}>
+            <div className="toggle"></div>
           </div>
         </div>
       </nav>

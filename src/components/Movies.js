@@ -6,7 +6,7 @@ import NoImg from "./nessuna-foto.jpg";
 import TrailerMovies from "../trailers/TrailerMovies";
 
 function Movies() {
-  const { toggle, inputValue } = useContext(Container);
+  const { inputValue } = useContext(Container);
   const input = inputValue;
   const [movieData, setMovieData] = useState([]);
   const [trailer, setTrailer] = useState(true);
@@ -38,7 +38,7 @@ function Movies() {
   };
   return (
     <Fragment>
-      <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
+      <div>
         <section className="movies-container">
           {movieData.map((movie) => {
             return (
@@ -61,7 +61,7 @@ function Movies() {
                   />
                   <h3
                     id={movie.title.length > 28 ? "smaller-Text" : ""}
-                    className={toggle ? "mainColor" : "secondaryColor"}
+                    className="mainColor"
                   >
                     {movie.title}
                   </h3>
@@ -69,16 +69,12 @@ function Movies() {
               </Fragment>
             );
           })}
-          {trailer ? (
-            console.log()
-          ) : (
-            <TrailerMovies moviesTitle={moviTitle} toggle={toggle} />
-          )}
+          {trailer ? console.log() : <TrailerMovies moviesTitle={moviTitle} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
-            className={toggle ? "DarkTheme player" : "LightTemeClose player"}
+            className="player"
             fontSize={55}
-            color={toggle ? "#fff" : "#ff206e"}
+            color="var(--clr-text)"
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />

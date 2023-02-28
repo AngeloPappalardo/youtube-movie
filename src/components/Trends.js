@@ -6,7 +6,7 @@ import NoImg from "./nessuna-foto.jpg";
 import TrailerTrends from "../trailers/TrailerTrends";
 
 function Trends() {
-  const { toggle, inputValue } = useContext(Container);
+  const { inputValue } = useContext(Container);
   const input = inputValue;
   const Api = "https://api.themoviedb.org/3";
 
@@ -31,7 +31,7 @@ function Trends() {
     setTimeout(() => {
       Trends();
     }, 100);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
   const TrendTitle = (trend) => {
     setTrendTitle(trend.title);
@@ -39,7 +39,7 @@ function Trends() {
   };
   return (
     <Fragment>
-      <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
+      <div>
         <section className="movies-container">
           {trendArry.map((trend) => {
             return (
@@ -60,22 +60,19 @@ function Trends() {
                     alt="img"
                     onClick={() => TrendTitle(trend)}
                   />
-                  <h3
-                    id="smaller-Text"
-                    className={toggle ? "mainColor" : "secondaryColor"}
-                  >
+                  <h3 id="smaller-Text" className="mainColor">
                     {trend.title}
                   </h3>
                 </article>
               </Fragment>
             );
           })}
-          {trailer ? console.log() : <TrailerTrends trendTitle={trendTitle} toggle={toggle} />}
+          {trailer ? console.log() : <TrailerTrends trendTitle={trendTitle} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
-            className={toggle ? "DarkTheme" : "LightTemeClose"}
+            className="player"
             fontSize={55}
-            color={toggle ? "#fff" : "#ff206e"}
+            color="var(--clr-text)"
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />

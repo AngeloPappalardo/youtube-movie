@@ -6,7 +6,7 @@ import { Container } from "./Navbar";
 import TrailerTvShows from "../trailers/TrailerTvShows";
 
 function TvShows() {
-  const { toggle, inputValue } = useContext(Container);
+  const { inputValue } = useContext(Container);
   const input = inputValue;
   const [showData, setShowData] = useState([]);
   const [trailer, setTrailer] = useState(true);
@@ -37,7 +37,7 @@ function TvShows() {
   };
   return (
     <Fragment>
-      <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
+      <div>
         <section className="movies-container">
           {showData.map((shows) => {
             return (
@@ -60,7 +60,7 @@ function TvShows() {
                   />
                   <h3
                     id={shows.name.length > 28 ? "smaller-Text" : ""}
-                    className={toggle ? "mainColor" : "secondaryColor"}
+                    className="mainColor"
                   >
                     {shows.name}
                   </h3>
@@ -68,16 +68,12 @@ function TvShows() {
               </Fragment>
             );
           })}
-          {trailer ? (
-            console.log()
-          ) : (
-            <TrailerTvShows TvShowsTitle={title} toggle={toggle} />
-          )}
+          {trailer ? console.log() : <TrailerTvShows TvShowsTitle={title} />}
           <AiOutlineClose
             id={trailer ? "Nothing" : "Exit1"}
-            className={toggle ? "DarkTheme" : "LightTemeClose"}
+            className="player"
             fontSize={55}
-            color={toggle ? "#fff" : "#ff206e"}
+            color="var(--clr-text)"
             cursor={"pointer"}
             onClick={() => setTrailer(true)}
           />

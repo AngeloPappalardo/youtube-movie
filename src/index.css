@@ -14,19 +14,40 @@ code {
     monospace;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.light-font {
+  background-color: #fff;
+  --clr-nav: #38bdab;
+  --clr-text: #0c1e25;
+  --somekeyword: 4px;
+  transition: all 0.5s linear;
+}
+
+.dark-font {
+  background-color: #0c1e25;
+  --clr-nav: black;
+  --clr-text: #ff206e;
+  --somekeyword: 34px;
+  transition: all 0.5s linear;
+}
+
 /* Navbar */
 
 nav {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  background-color: #001219;
+  background-color: var(--clr-nav);
+  transition: 0.6s;
   align-items: center;
   position: fixed;
   z-index: 1;
 }
 nav h1 {
-  color: #fff;
+  color: var(--clr-text);
   margin-left: 40px;
 }
 nav a {
@@ -40,34 +61,16 @@ nav span {
 }
 nav span:hover {
   color: #fff;
-  border-bottom: 2px solid #ee9b00;
+  border-bottom: 2px solid var(--clr-text);
   padding-bottom: 5px;
 }
-span #HomeLight,
-#MoviesLight,
-#TrendingLight,
-#PricingLight {
-  color: #fff;
-}
 
-span #HomeLight:hover,
-#MoviesLight:hover,
-#TrendingLight:hover,
-#PricingLight:hover {
-  border-bottom: 2px solid #ff206e;
-}
-#navBarColor {
-  background-color: #38bdab;
-  transition: 0.6s;
-}
 .nav-options {
   display: flex;
   align-items: center;
 }
-#heading {
-  color: #ff206e;
-}
-#navBarColor span:hover {
+
+.navBarColor span:hover {
   border-bottom: 2px solid #ff206e;
   padding-bottom: 5px;
 }
@@ -83,9 +86,9 @@ span #HomeLight:hover,
   height: 40px;
   border-radius: 20px;
 }
-#Color-switcher-mover {
+.toggle {
   position: absolute;
-  left: 4px;
+  left: var(--somekeyword);
   top: 4px;
   background-color: #fff;
   width: 33px;
@@ -93,16 +96,7 @@ span #HomeLight:hover,
   border-radius: 50%;
   transition: 0.6s;
 }
-#Color-switcher-moved {
-  position: absolute;
-  background-color: #fff;
-  left: 34px;
-  top: 4px;
-  width: 33px;
-  height: 33px;
-  border-radius: 50%;
-  transition: 0.6s;
-}
+
 .input-group input {
   position: relative;
   width: 260px;
@@ -140,7 +134,7 @@ span #HomeLight:hover,
   .menu {
     position: fixed;
     bottom: 0;
-    background-color: #001219;
+    background-color: var(--clr-nav);
     display: flex;
     padding: 20px;
     left: 0;
@@ -163,6 +157,7 @@ form {
 .form-title {
   text-align: center;
   margin-top: 0;
+  color: var(--clr-text);
 }
 
 input[type="email"],
@@ -189,10 +184,6 @@ button[type="submit"]:hover {
   background-color: #3e8e41;
 }
 
-.error {
-  color: red;
-  font-style: italic;
-}
 @media (max-width: 800px) {
   form {
     width: 300px;
@@ -211,14 +202,7 @@ button[type="submit"]:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
-.mainBgColor {
-  background-color: #0c1e25;
-  width: 100%;
-}
-.secondaryBgColor {
-  background-color: #fff;
-  width: 100%;
-}
+
 .movies-container img {
   width: 350px;
   height: 550px;
@@ -226,7 +210,7 @@ button[type="submit"]:hover {
   border-radius: 18px;
 }
 .mainColor {
-  color: #fff;
+  color: var(--clr-text);
   display: flex;
   justify-content: center;
   font-size: 1rem;
@@ -234,13 +218,7 @@ button[type="submit"]:hover {
 #Nothing {
   display: none;
 }
-.secondaryColor {
-  color: #ff206e;
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
-}
+
 .movies-container h3,
 .movies-container img {
   cursor: pointer;
@@ -281,12 +259,7 @@ button[type="submit"]:hover {
 #NoContainer {
   opacity: 0.35;
 }
-.DarkTheme {
-  color: #fff;
-}
-.LightThemeClose {
-  color: #ff206e;
-}
+
 @media (max-width: 800px) {
   #Exit1 {
     margin-left: 320px;
@@ -305,31 +278,22 @@ button[type="submit"]:hover {
   position: absolute;
   z-index: 100;
 }
-#TrailerMovie-name-dark {
+.container-title {
   display: flex;
   width: 100%;
   justify-content: center;
   position: absolute;
   top: -100px;
   font-size: 2.5rem;
-  color: #ee9b00;
+  color: var(--clr-text);
 }
-#TrailerMovie-name-light {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  position: absolute;
-  top: -100px;
-  font-size: 2.5rem;
-  color: #ff206e;
-}
+
 @media (max-width: 800px) {
   .player div iframe {
     width: 360px;
     margin-left: 140px;
   }
-  #TrailerMovie-name-light,
-  #TrailerMovie-name-dark {
+  .container-title {
     font-size: 1.2rem;
     top: -70px;
   }

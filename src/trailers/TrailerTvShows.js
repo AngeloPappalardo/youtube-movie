@@ -3,8 +3,7 @@ import { useState } from "react";
 import ReactPlayer from "react-player";
 import movieTrailer from "movie-trailer";
 
-
-const TrailerTvShows = ({ TvShowsTitle, toggle }) => {
+const TrailerTvShows = ({ TvShowsTitle }) => {
   const [video, setVideo] = useState("");
   const [videoURL, setVideoURL] = useState("");
 
@@ -22,9 +21,7 @@ const TrailerTvShows = ({ TvShowsTitle, toggle }) => {
     <Fragment>
       <div className="container-trailer"></div>
       <div className="player">
-        <div id={toggle ? "TrailerMovie-name-dark" : "TrailerMovie-name-light"}>
-          {TvShowsTitle}
-        </div>
+        <div className="container-title">{TvShowsTitle}</div>
         <ReactPlayer url={videoURL} controls={true} muted={false} />
       </div>
     </Fragment>

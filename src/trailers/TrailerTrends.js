@@ -3,8 +3,7 @@ import { useState } from "react";
 import ReactPlayer from "react-player";
 import movieTrailer from "movie-trailer";
 
-
-const TrailerTrends = ({ trendTitle, toggle }) => {
+const TrailerTrends = ({ trendTitle }) => {
   const [video, setVideo] = useState("");
   const [videoURL, setVideoURL] = useState("");
 
@@ -22,9 +21,7 @@ const TrailerTrends = ({ trendTitle, toggle }) => {
     <Fragment>
       <div className="container-trailer"></div>
       <div className="player">
-        <div id={toggle ? "TrailerMovie-name-dark" : "TrailerMovie-name-light"}>
-          {trendTitle}
-        </div>
+        <div className="container-title">{trendTitle}</div>
 
         <ReactPlayer url={videoURL} controls={true} muted={false} />
       </div>

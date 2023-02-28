@@ -8,16 +8,13 @@ import NavbarSection from "./NavbarSection";
 export const Container = React.createContext();
 
 function Navbar() {
-  const [toggle, setTogle] = useState(true);
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <Container.Provider value={{ toggle, inputValue }}>
+    <Container.Provider value={{ inputValue }}>
       <Fragment>
         <header className="pb-5">
           <NavbarSection
-            toggle={toggle}
-            setTogle={setTogle}
             inputValue={inputValue}
             setInputValue={setInputValue}
           />
