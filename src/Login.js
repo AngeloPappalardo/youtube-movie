@@ -17,6 +17,12 @@ export const Login = ({ onFormSwitch }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(email)) {
+      setErrMsg("enter a valid email address");
+      return;
+    }
     //solo di prova sensa back-and
     setPassword("");
     setEmail("");
@@ -69,15 +75,15 @@ export const Login = ({ onFormSwitch }) => {
           <header className="pb-5">
             <NavbarSection />
           </header>
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
           <h1 className="form-title">Sign In</h1>
           <form onSubmit={handleSubmit}>
+            <p
+              ref={errRef}
+              className={errMsg ? "errmsg" : "offscreen"}
+              aria-live="assertive"
+            >
+              {errMsg}
+            </p>
             <label htmlFor="email">email</label>
             <input
               value={email}
