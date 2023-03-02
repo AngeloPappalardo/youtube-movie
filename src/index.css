@@ -95,6 +95,10 @@ nav span:hover {
   border-radius: 50%;
   transition: 0.6s;
 }
+.toggle-svg {
+  width: 35px;
+  margin-top: 5px;
+}
 
 .input-group input {
   position: relative;
@@ -268,6 +272,11 @@ button[type="submit"]:hover {
 @media (max-width: 800px) {
   #Exit1 {
     margin-left: 320px;
+  }
+}
+@media (max-width: 720px) {
+  .movies-container {
+    gap: 0;
   }
 }
 

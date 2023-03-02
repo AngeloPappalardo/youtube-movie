@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { HiSearch } from "react-icons/hi";
+import { HiSearch, HiSun, HiMoon } from "react-icons/hi";
 
 function NavbarSection({ setInputValue }) {
   const [thame, setThame] = useState("dark-font");
@@ -57,6 +57,16 @@ function NavbarSection({ setInputValue }) {
           <HiSearch fontSize={21} color=" var( --clr-nav)" id="search" />
           <div id="Color-switcher" onClick={changeTheme}>
             <div className="toggle"></div>
+            <HiSun
+              className="toggle-svg"
+              fontSize={30}
+              color="rgb(246 223 0)"
+            />
+            <HiMoon
+              className="toggle-svg"
+              fontSize={30}
+              color="rgb(155 155 217)"
+            />
           </div>
         </div>
       </nav>
